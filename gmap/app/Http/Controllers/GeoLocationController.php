@@ -30,10 +30,16 @@ class GeoLocationController extends Controller
         $geoLocationData = [
             'latitude' => $request->input('latitude'),
             'longitude' => $request->input('longitude'),
-            'location_type' => is_null($request->input('location_type'))?'':$request->input('location_type'),
-            'address' => $request->input('address')
+            'type' => is_null($request->input('location_type'))?'':$request->input('location_type'),
+            'name' => $request->input('address'),
+            'user_id' => 1
         ];
 
-        $geoLocation = DB::table('geo_location')->insert($geoLocationData);
+        $geoLocation = DB::table('places')->insert($geoLocationData);
+    }
+
+    public function getPlaces()
+    {
+        return $places = DB::table('places')->select('id','name','type','user_id','latitude','longitude')->get();
     }
 }

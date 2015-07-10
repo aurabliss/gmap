@@ -22,5 +22,22 @@ Route::get('modal', function () {
     return view('modal');
 });
 
+Route::get('map2', function () {
+    return view('map2');
+});
+
+Route::get('map3', function () {
+    return view('map3');
+});
+
+Route::get('slider', function () {
+    return view('collapse');
+});
+
+Route::get('distributors', function () {
+    return view('distributors');
+});
 
 Route::post('geo_location', 'GeoLocationController@create');
+
+get('places', 'GeoLocationController@getPlaces');
